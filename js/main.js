@@ -31,20 +31,19 @@ function createContents(data) {
             var affiliateUrl = item.affiliateUrl;
             var imageUrl = item.mediumImageUrls[0].imageUrl;
             var itemName = item.itemName;
-            if (itemName.length > 10) {
-                itemName = itemName.substring(0, 10) + '...';
+            if (itemName.length > 20) {
+                itemName = itemName.substring(0, 20) + '...';
             }
             var itemPrice = item.itemPrice;
             var htmlTemplate = $(
                 '<div class="grid">' +
-                    '<div class="imgholder swing">' +
-                        '<a href="' + affiliateUrl + '">' +
-                            '<img src="' + imageUrl + '" alt="' + item.itemName + '" width="128" ' + 'height="128"/>' +
-                        '</a>
-                    </div>' +
-                    '<h2><a href="' + affiliateUrl + '">' + itemName + '</a></h2>' +
-                    '<p>' + item.itemName + '</p>' +
-                    '<div class="meta">' + itemPrice + '円</div>' +
+                    '<a>' +
+                        '<div class="imgholder swing">' +
+                          '<img src="' + imageUrl + '" alt="' + item.itemName + '" width="128" ' + 'height="128"/>' +
+                        '</div>' +
+                        '<h5>' + itemName + '</h5>' +
+                        '<div class="meta">' + itemPrice + '円</div>' +
+                    '</a>' +
                 '</div>');
 
             //テンプレートを追加
