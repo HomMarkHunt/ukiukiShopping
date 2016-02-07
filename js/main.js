@@ -21,7 +21,7 @@ function search(keyword) {
 };
 
 function createContents(data) {
-  console.log(data);
+    console.log(data);
     $('#container').empty();
 
     var dataStat = data.count;
@@ -35,15 +35,16 @@ function createContents(data) {
                 itemName = itemName.substring(0, 10) + '...';
             }
             var itemPrice = item.itemPrice;
-            var htmlTemplate = $('<div class="grid">' +
-                '<div class="imgholder swing">' +
-                '<a href="' + affiliateUrl + '">' +
-                '<img src="' + imageUrl + '" alt="' + item.itemName + '" width="128" ' +
-                'height="128"/>' +
-                '</a></div>' +
-                '<h2><a href="' + affiliateUrl + '">' + itemName + '</a></h2>' +
-                '<p>' + item.itemName + '</p>' +
-                '<div class="meta">' + itemPrice + '円</div>' +
+            var htmlTemplate = $(
+                '<div class="grid">' +
+                    '<div class="imgholder swing">' +
+                        '<a href="' + affiliateUrl + '">' +
+                            '<img src="' + imageUrl + '" alt="' + item.itemName + '" width="128" ' + 'height="128"/>' +
+                        '</a>
+                    </div>' +
+                    '<h2><a href="' + affiliateUrl + '">' + itemName + '</a></h2>' +
+                    '<p>' + item.itemName + '</p>' +
+                    '<div class="meta">' + itemPrice + '円</div>' +
                 '</div>');
 
             //テンプレートを追加
