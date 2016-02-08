@@ -7,19 +7,29 @@
 </head>
 <body>
 
-	<header></header>
+	<div class="main-contents">
 
-	<div id="search">
-		<section class="search">
-			<form id="search-form">
-				<input type="text" class="input" value="" placeholder="What you want??"/>
-			</form>
-			<button id="serch-btn" class="btn" type="submit">search!!</button>
-		</section>
-	</div>
+		<header>
+			<span class="head">logoSpace</span>
+			<a class="head" href='javaScpipt:void(0)'>contact us</a>
+		</header>
 
-	<div id="container">
+		<div id="search">
+			<section class="search">
+				<form id="search-form">
+					<input type="text" class="input" value="" placeholder="What you want??"/>
+				</form>
+				<button id="serch-btn" class="btn" type="submit">search!!</button>
+			</section>
+		</div>
+		<div class="result">
+			<p class="hit hidden">TotalHit : <span class="hit" id="hit-result"></span></p>
+		</div>
 
+		<div id="container">
+			<!-- Contents will content here -->
+		</div>
+	
 	</div>
 	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
   <script type="text/javascript" src="js/main.js"></script>

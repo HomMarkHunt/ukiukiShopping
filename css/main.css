@@ -1,11 +1,27 @@
+div.main-contents {
+	width: 80%;
+	margin: 0 auto;  
+}
+
+p.head {
+	float: left;
+}
+
+a.head {
+	float: right;
+}
+
 div#search {
+	height: 300px;
 	text-align: center;
+	background-image: url("../img/search.jpg")
 }
 
 input.input {
 	text-align: center;
-	width: 500px;
-	height: 20px;
+	width: 80%;
+	height: 35px;
+	margin-top: 40px;
 }
 
 button.btn {
@@ -15,13 +31,46 @@ button.btn {
 }
 
 div.grid {
-	border: solid;
-	height: 450px;
-	width: 32%;
-	display:block;
-	float:left;
-	list-style-type:none;
-	text-align:center;
+  color: rgba(187,226,255,1);;
+  padding: 1px;
+  border: 1px dashed rgba(187,226,255,1);
+	height: 280px;
+	width: 19%;
+	display: block;
+	float: left;
+	text-align: center;
 }
 
+.label {
+ position: relative;
+}
 
+.label:after {
+ position: absolute;
+ content: " ";
+ height: 0;
+ width: 0;
+}
+
+.label span {
+ position: absolute;
+ content: " ";
+ font-size: 12px;
+ font-weight: bold;
+ color: #fff;
+ z-index:100;
+}
+
+.left:after {
+ top: 0;
+ left: 0;
+ border-bottom:3em solid transparent;
+ border-left:3em solid rgba(187,226,255,1);
+}
+.left span {
+ top: .5em;
+ left: .2em;
+ transform: rotate(-45deg);
+ -webkit-transform: rotate(-90deg);
+ -ms-transform: rotate(-45deg);
+}

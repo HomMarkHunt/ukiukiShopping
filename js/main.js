@@ -36,8 +36,9 @@ function createContents(data) {
             }
             var itemPrice = item.itemPrice;
             var htmlTemplate = $(
-                '<div class="grid">' +
+                '<div class="grid label left">' +
                     '<a>' +
+                        '<span>Lo</span>' +
                         '<div class="imgholder swing">' +
                           '<img src="' + imageUrl + '" alt="' + item.itemName + '" width="128" ' + 'height="128"/>' +
                         '</div>' +
