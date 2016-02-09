@@ -1,11 +1,14 @@
+var $keyword = null;
+var $page = 1;
+
 $("#serch-btn").on('click', function () {
-	var $keyword = $(".input").val();
+	$keyword = $(".input").val();
 	console.log($keyword);
 
-	search($keyword);
+	search($keyword, $page);
 });
 
-function search(keyword) {
+function search(keyword, page) {
 
 	$.ajax({
 		type: "GET",
@@ -13,7 +16,8 @@ function search(keyword) {
 		data: {
 			applicationId: "1066586154280401238",
 			affiliateId: "14b5fa3e.f91cdd3a.14b5fa3f.c2623db2",
-			keyword : keyword
+			keyword : keyword,
+            page : page
 		}
 	}).done(function(data) {
 		createContents(data);
@@ -22,7 +26,7 @@ function search(keyword) {
 
 function createContents(data) {
     console.log(data);
-    $('#container').empty();
+    // $('#container').empty();
 
     var dataStat = data.count;
     $("p.hidden").removeClass("hidden");
@@ -55,3 +59,13 @@ function createContents(data) {
         });
     };//each
 };
+
+// ariive at buttom
+$(window).on("scroll", function() {
+    var scrollHeight = $(document).height();
+    var scrollPosition = $(window).height() + $(window).scrollTop();
+    if ((scrollHeight - scrollPosition) / scrollHeight === 0) {
+        $page += 1;
+        search($keyword, $page);
+    }
+});
