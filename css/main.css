@@ -38,11 +38,17 @@ div.grid {
   color: rgba(187,226,255,1);;
   padding: 1px;
   border: 1px dashed rgba(187,226,255,1);
-	height: 280px;
+	height: 290px;
 	width: 19%;
 	display: block;
 	float: left;
 	text-align: center;
+}
+
+img.item-img {
+	width: 84%;
+	height: 84%;
+	margin-top: 5%;
 }
 
 .label {
@@ -68,13 +74,13 @@ div.grid {
 .left:after {
  top: 0;
  left: 0;
- border-bottom:3em solid transparent;
- border-left:3em solid rgba(187,226,255,1);
+ border-bottom: 4em solid transparent;
+ border-left: 4em solid rgba(187,226,255,1);
 }
 .left span {
  top: .5em;
  left: .2em;
  transform: rotate(-45deg);
- -webkit-transform: rotate(-90deg);
+ -webkit-transform: rotate(-45deg);
  -ms-transform: rotate(-45deg);
 }

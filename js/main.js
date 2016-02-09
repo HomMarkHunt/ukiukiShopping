@@ -46,7 +46,7 @@ function createContents(data) {
                     '<a>' +
                         '<span>Lo</span>' +
                         '<div class="imgholder swing">' +
-                          '<img src="' + imageUrl + '" alt="' + item.itemName + '" width="128" ' + 'height="128"/>' +
+                          '<img class="item-img" src="' + imageUrl + '" alt="' + item.itemName + '"/>' +
                         '</div>' +
                         '<h5>' + itemName + '</h5>' +
                         '<div class="meta">' + itemPrice + '円</div>' +
