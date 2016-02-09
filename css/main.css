@@ -33,8 +33,8 @@ button.btn {
 div.grid {
   color: rgba(187,226,255,1);;
   padding: 1px;
-  border: 1px dashed rgba(187,226,255,1);/*
-	height: 280px;*/
+  border: 1px dashed rgba(187,226,255,1);
+	height: 290px;
 	width: 19%;
 	display: block;
 	float: left;
