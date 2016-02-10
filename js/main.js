@@ -30,7 +30,7 @@ function createContents(data) {
 
     var dataStat = data.count;
     $("p.hidden").removeClass("hidden");
-    $("span#hit-result").text(dataStat + "件");
+    $("span#hit-result").text(dataStat.toLocaleString() + "件");
     if (dataStat > 0) {
         $.each(data.Items, function (i, items) {
             var item = items.Item;
