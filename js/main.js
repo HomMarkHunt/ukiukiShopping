@@ -9,7 +9,6 @@ $("#serch-btn").on('click', function () {
 });
 
 function search(keyword, page) {
-
 	$.ajax({
 		type: "GET",
 		url: "https://app.rakuten.co.jp/services/api/IchibaItem/Search/20140222",
