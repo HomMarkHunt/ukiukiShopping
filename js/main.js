@@ -68,3 +68,16 @@ $(window).on("scroll", function() {
         search($keyword, $page);
     }
 });
+
+// ローダー表示
+function displayLoader() {
+    if ($("#loading").size() === 0) {
+        $("body").append("<div id='loading'></div>");
+    }
+}
+
+// ローダー非表示
+function removeLoader() {
+    $("#loading").remove();
+}
+
