@@ -2,32 +2,53 @@ html,body {
     height:100%;
 }
 
-div.main-contents {
-	width: 80%;
-	margin: 0 auto;  
-}
-
 .hidden {
 	display: none;
 }
 
 header {
     position: fixed;
-    height: 10px;
+    margin: 0 auto;
+    width: 100%;
+    height: 40px;
+    background-color: rgba(187,226,255,1);
+    border-bottom: 1px solid #CCC;
+    color: #FFF;
+    top:0;
+    left:0;
+    z-index: 2;
 }
 
-p.head {
+img.head {
+    margin: 0 auto;
+    padding-left: 10%;
+    height: 80%;
 	float: left;
 }
 
-a.head {
-	float: right;
+img.mail {
+    padding-right: 11%;
+    height: 80%;
+    float: right;
+    width: 35px;
+    height: 35px;
+    float: right;
+}
+
+div.main-contents {
+    width: 80%;
+    margin: 0 auto;
 }
 
 div#search {
+    margin-top: 45px;
 	height: 300px;
 	text-align: center;
 	background-image: url("../img/search.jpg")
+}
+
+div#container {
+    width: 100%;
 }
 
 input.input {
@@ -43,21 +64,24 @@ button.btn {
     height: 20px;
 }
 
-div.grid {
+a.grid {
+    margin-left: 5%;
+    margin-bottom: 1%;
     color: rgba(187,226,255,1);;
-    padding: 1px;
+    padding: 0.5px;
     border: 1px dashed rgba(187,226,255,1);
-	height: 290px;
-	width: 19%;
+	height: 45%;
+	width: 18%;
 	display: block;
 	float: left;
 	text-align: center;
 }
 
 img.item-img {
-	width: 84%;
-	height: 84%;
-	margin-top: 5%;
+	height: 80%;
+	margin-top: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .label {
@@ -71,13 +95,13 @@ img.item-img {
     width: 0;
 }
 
-.label span {
+img.brand-logo  {
     position: absolute;
-    content: " ";
-    font-size: 12px;
-    font-weight: bold;
-    color: #fff;
-    z-index:100;
+    height: 30px;
+    z-index:1;
+    top: .1em;
+    left: .1em;
+
 }
 
 .left:after {
@@ -87,21 +111,12 @@ img.item-img {
     border-left: 4em solid rgba(187,226,255,1);
 }
 
-.left span {
-    top: .5em;
-    left: .2em;
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
-}
-
 #loading {
     position:relative;
     margin: 0 auto;
     width:80%;
     min-height: 100%;
     background-repeat: no-repeat;
-    border:1px dashed #999;
     padding-top:100px;
     filter: alpha(opacity=85);
     -moz-opacity:0.85;

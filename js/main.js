@@ -36,11 +36,12 @@ function search(keyword, page) {
 
 function createContents(data) {
     console.log(data);
-    // $('#container').empty();
 
     var dataStat = data.count;
-    $("p.hidden").removeClass("hidden");
-    $("span #hit-result").text(dataStat.toLocaleString() + "件");
+    if ($page == 1) {
+        $("p.hidden").removeClass("hidden");
+        $("span #hit-result").text(dataStat.toLocaleString() + "件");
+    }
     if (dataStat > 0) {
         $.each(data.Items, function (i, items) {
             var item = items.Item;
@@ -52,16 +53,14 @@ function createContents(data) {
             }
             var itemPrice = item.itemPrice;
             var htmlTemplate = $(
-                '<div class="grid label left">' +
-                    '<a>' +
-                        '<span>Lo</span>' +
-                        '<div class="imgholder swing">' +
-                          '<img class="item-img" src="' + imageUrl + '" alt="' + item.itemName + '"/>' +
-                        '</div>' +
-                        '<h5>' + itemName + '</h5>' +
-                        '<div class="meta">' + itemPrice + '円</div>' +
-                    '</a>' +
-                '</div>');
+                '<a class="grid label left">' +
+                    '<img class="brand-logo" src="./img/rakuten.jpeg"/>' +
+                    '<div class="imgholder swing">' +
+                      '<img class="item-img" src="' + imageUrl + '" alt="' + item.itemName + '"/>' +
+                    '</div>' +
+                    '<h5>' + itemName + '</h5>' +
+                    '<div class="meta">' + itemPrice + '円</div>' +
+                '</a>');
 
             //テンプレートを追加
             $('#container').append(htmlTemplate);
@@ -104,4 +103,12 @@ function displayLoader() {
 function removeLoader() {
     $("#loading").remove();
 }
+
+// メーラー起動
+$("a.head").on('click', function() {
+    var address = 'ukiukitechsuppo@yahoo.co.jp';
+    var subject = 'Comment or Question';
+    var body = '';
+    location.href = 'mailto:' + 'ukiukitechsuppo@yahoo.co.jp' + '?subject=' + 'Comment or Question' + '&body=' + '';
+})
 
