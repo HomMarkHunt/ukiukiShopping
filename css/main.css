@@ -1,3 +1,7 @@
+html,body {
+    height:100%;
+}
+
 div.main-contents {
 	width: 80%;
 	margin: 0 auto;  
@@ -29,15 +33,15 @@ input.input {
 }
 
 button.btn {
-	text-align: center;
-	width: 100px;
-	height: 20px;	
+    text-align: center;
+    width: 100px;
+    height: 20px;
 }
 
 div.grid {
-  color: rgba(187,226,255,1);;
-  padding: 1px;
-  border: 1px dashed rgba(187,226,255,1);
+    color: rgba(187,226,255,1);;
+    padding: 1px;
+    border: 1px dashed rgba(187,226,255,1);
 	height: 290px;
 	width: 19%;
 	display: block;
@@ -52,35 +56,55 @@ img.item-img {
 }
 
 .label {
- position: relative;
+    position: relative;
 }
 
 .label:after {
- position: absolute;
- content: " ";
- height: 0;
- width: 0;
+    position: absolute;
+    content: " ";
+    height: 0;
+    width: 0;
 }
 
 .label span {
- position: absolute;
- content: " ";
- font-size: 12px;
- font-weight: bold;
- color: #fff;
- z-index:100;
+    position: absolute;
+    content: " ";
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    z-index:100;
 }
 
 .left:after {
- top: 0;
- left: 0;
- border-bottom: 4em solid transparent;
- border-left: 4em solid rgba(187,226,255,1);
+    top: 0;
+    left: 0;
+    border-bottom: 4em solid transparent;
+    border-left: 4em solid rgba(187,226,255,1);
 }
+
 .left span {
- top: .5em;
- left: .2em;
- transform: rotate(-45deg);
- -webkit-transform: rotate(-45deg);
- -ms-transform: rotate(-45deg);
+    top: .5em;
+    left: .2em;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+}
+
+#loading {
+    position:relative;
+    margin: 0 auto;
+    width:80%;
+    min-height: 100%;
+    background-repeat: no-repeat;
+    border:1px dashed #999;
+    padding-top:100px;
+    filter: alpha(opacity=85);
+    -moz-opacity:0.85;
+    opacity:0.85;
+}
+
+.loaderIcon {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

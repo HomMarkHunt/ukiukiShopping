@@ -2,8 +2,13 @@ var $keyword = null;
 var $page = 1;
 
 $("#serch-btn").on('click', function () {
-	$keyword = $(".input").val();
+	$keyword = $("#input").val();
 	console.log($keyword);
+    $('#container').empty();
+
+    if ($keyword) {
+        return false;
+    }
 
 	search($keyword, $page);
 });
@@ -32,7 +37,7 @@ function createContents(data) {
 
     var dataStat = data.count;
     $("p.hidden").removeClass("hidden");
-    $("span#hit-result").text(dataStat.toLocaleString() + "件");
+    $("span #hit-result").text(dataStat.toLocaleString() + "件");
     if (dataStat > 0) {
         $.each(data.Items, function (i, items) {
             var item = items.Item;
@@ -62,8 +67,12 @@ function createContents(data) {
     };//each
 };
 
-// ariive at buttom
+// 画面下部で検索する
 $(window).on("scroll", function() {
+    if ($page !== 0) {
+        return false;
+    }
+
     var scrollHeight = $(document).height();
     var scrollPosition = $(window).height() + $(window).scrollTop();
     if ((scrollHeight - scrollPosition) / scrollHeight === 0) {
@@ -76,7 +85,7 @@ $(window).on("scroll", function() {
 // ローダー表示
 function displayLoader() {
     if ($("#loading").size() === 0) {
-        $("body").append("<div id='loading'></div>");
+        $("body").append("<div id='loading'><img class='loaderIcon' src='./img/loader.gif'/></div>");
     }
 }
 
