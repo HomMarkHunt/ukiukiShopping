@@ -11,6 +11,11 @@ div.main-contents {
 	display: none;
 }
 
+header {
+    position: fixed;
+    height: 10px;
+}
+
 p.head {
 	float: left;
 }

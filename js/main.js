@@ -1,20 +1,22 @@
-var $keyword = null;
+var keyword = null;
 var $page = 1;
 
 $("#serch-btn").on('click', function () {
-	$keyword = $("#input").val();
-	console.log($keyword);
+    $page = 1;
+	keyword = $("#input").val();
+	console.log(keyword);
     $('#container').empty();
 
-    if ($keyword) {
+    if (!keyword) {
         return false;
     }
 
-	search($keyword, $page);
+	search(keyword, $page);
 });
 
 function search(keyword, page) {
     displayLoader();
+
 	$.ajax({
 		type: "GET",
 		url: "https://app.rakuten.co.jp/services/api/IchibaItem/Search/20140222",
@@ -27,6 +29,7 @@ function search(keyword, page) {
 	}).success(function(data) {
 		createContents(data);
 	}).complete(function() {
+        $page += 1;
         removeLoader();
     })
 };
@@ -69,22 +72,30 @@ function createContents(data) {
 
 // 画面下部で検索する
 $(window).on("scroll", function() {
-    if ($page !== 0) {
+    if ($page == 1) {
         return false;
     }
 
     var scrollHeight = $(document).height();
     var scrollPosition = $(window).height() + $(window).scrollTop();
     if ((scrollHeight - scrollPosition) / scrollHeight === 0) {
-        $page += 1;
-
-        search($keyword, $page);
+        search(keyword, $page);
     }
 });
 
+// 検索ボタン表示
+function displaySearchBtn() {
+    $("#serch-btn").addClass("hidden");
+}
+
+// 検索ボタン非表示
+function hideSearchBtn() {
+    $("#serch-btn").removeClass("hidden");
+}
+
 // ローダー表示
 function displayLoader() {
-    if ($("#loading").size() === 0) {
+    if ($("#loading").size() == 0) {
         $("body").append("<div id='loading'><img class='loaderIcon' src='./img/loader.gif'/></div>");
     }
 }
