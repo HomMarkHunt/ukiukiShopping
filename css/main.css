@@ -55,13 +55,15 @@ input.input {
 	text-align: center;
 	width: 80%;
 	height: 35px;
-	margin-top: 40px;
+	margin-top: 60px;
 }
 
 button.btn {
     text-align: center;
-    width: 100px;
-    height: 20px;
+    width: 25%;
+    height: 25px;
+    margin-top: 30px;
+    background-color: white;
 }
 
 a.grid {
@@ -75,6 +77,12 @@ a.grid {
 	display: block;
 	float: left;
 	text-align: center;
+}
+
+a.grid:hover {
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+    -ms-filter: "alpha(opacity=70)";
 }
 
 img.item-img {
@@ -128,3 +136,38 @@ img.brand-logo  {
     margin-left: auto;
     margin-right: auto;
 }
+
+#modalbox {
+    display:none;
+    position:absolute;
+    z-index:1000;
+    width:400px;
+    padding:20px;
+    background:#fff;
+    border:5px solid #eee;
+    border-radius:5px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+}
+
+#overlay {
+    opacity:0;
+    filter: alpha(opacity=0);
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:900;
+    width:100%;
+    height:100%;
+    background:#000;
+}
+
+#close {
+    line-height:1;
+    font-size:14px;
+    position: absolute;
+    top:10px;
+    right:10px;
+    color:red;
+    text-decoration:none;
+}​

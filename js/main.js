@@ -53,13 +53,15 @@ function createContents(data) {
             }
             var itemPrice = item.itemPrice;
             var htmlTemplate = $(
-                '<a class="grid label left">' +
+                '<a href="#" class="grid label left showoverlay">' +
                     '<img class="brand-logo" src="./img/rakuten.jpeg"/>' +
                     '<div class="imgholder swing">' +
                       '<img class="item-img" src="' + imageUrl + '" alt="' + item.itemName + '"/>' +
                     '</div>' +
                     '<h5>' + itemName + '</h5>' +
-                    '<div class="meta">' + itemPrice + '円</div>' +
+                    '<div class="meta"><h4>' + itemPrice + '円</h4></div>' +
+                    '<div class="hidden url">' + affiliateUrl + '</div>' +
+                    '<div class="hidden full-item-name">' + item.itemName + '</div>' +
                 '</a>');
 
             //テンプレートを追加
@@ -112,3 +114,52 @@ $("a.head").on('click', function() {
     location.href = 'mailto:' + 'ukiukitechsuppo@yahoo.co.jp' + '?subject=' + 'Comment or Question' + '&body=' + '';
 })
 
+convertToModal = function(e) {
+    var itemName = $(e).children("div.full-item-name").text();
+    var itemUrl = $(e).children("div.url").text();
+    var imasrc = $(e).children('div.imgholder').children('img').attr('src');
+    var price = $(e).children('div.meta').children('h4').text();
+
+    $("p#item-name").text(itemName);
+    $("img#item-img").attr('src', imasrc);
+    $("p#price").text(price);
+    $("a#to-url").attr('href', itemUrl);
+}
+var $current_scrollY;
+//クリックイベント
+$("#container").on('click', 'a.showoverlay', (function() {
+    // 背景固定
+    $current_scrollY = $( window ).scrollTop();
+
+    $('div.main-contents').css( {
+        position: 'fixed',
+        width: '100%',
+        top: -1 * $current_scrollY
+    } );
+    //オーバーレイ用のボックスを作成
+    $("body").append("<div id='overlay'></div>");
+    convertToModal(this);
+    //フェードエフェクト
+    $("#overlay").fadeTo(500, 0.7);
+    $("#modalbox").fadeIn(500);
+}));
+
+//閉じる際のクリックイベント
+$("#close").click(function() {
+    $('div.main-contents').attr( { style: '' } );
+    $('html, body').prop( { scrollTop: $current_scrollY } );
+
+    $("#modalbox, #overlay").fadeOut(500, function() {
+        $("#overlay").remove();
+    });
+
+});
+
+$(window).resize(function() {
+    //ボックスサイズ
+    $("#modalbox").css({
+        top: ($(window).height() - $("#modalbox").outerHeight()) / 3,
+        left: ($(window).width() - $("#modalbox").outerWidth()) / 2
+    });
+});
+$(window).resize();
