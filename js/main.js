@@ -9,6 +9,7 @@ $("#serch-btn").on('click', function () {
 });
 
 function search(keyword, page) {
+    displayLoader();
 	$.ajax({
 		type: "GET",
 		url: "https://app.rakuten.co.jp/services/api/IchibaItem/Search/20140222",
@@ -18,9 +19,11 @@ function search(keyword, page) {
 			keyword : keyword,
             page : page
 		}
-	}).done(function(data) {
+	}).success(function(data) {
 		createContents(data);
-	})
+	}).complete(function() {
+        removeLoader();
+    })
 };
 
 function createContents(data) {
@@ -65,6 +68,7 @@ $(window).on("scroll", function() {
     var scrollPosition = $(window).height() + $(window).scrollTop();
     if ((scrollHeight - scrollPosition) / scrollHeight === 0) {
         $page += 1;
+
         search($keyword, $page);
     }
 });
