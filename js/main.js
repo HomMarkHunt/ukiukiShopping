@@ -40,7 +40,7 @@ function createContents(data) {
     var dataStat = data.count;
     if ($page == 1) {
         $("p.hidden").removeClass("hidden");
-        $("span #hit-result").text(dataStat.toLocaleString() + "件");
+        $("#hit-result").text(dataStat.toLocaleString() + "件");
     }
     if (dataStat > 0) {
         $.each(data.Items, function (i, items) {
